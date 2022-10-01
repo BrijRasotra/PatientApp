@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:patient_app/PatientProject/Dashboad/dashboad.dart';
 import 'package:patient_app/PatientProject/login/login.dart';
+import 'package:patient_app/util/local_storage.dart';
+
+import '../../util/util.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -33,8 +37,8 @@ class _SplashScreenState extends State<SplashScreen>
         Future.delayed(
             Duration(milliseconds: 500),
             () => {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginPage()))
+              print('yes'),
+                  openPage(),
                 });
       }
     });
@@ -48,6 +52,7 @@ class _SplashScreenState extends State<SplashScreen>
           gradient: LinearGradient(colors: [
             Color(0xFFfeb3ed),
             Color(0xFF7eadf8),
+            Color(0xFFf4b961),
             Color(0xFFfeb3ed),
             Color(0xFF7eadf8)
           ], begin: Alignment.topRight, end: Alignment.bottomLeft),
@@ -125,5 +130,33 @@ class _SplashScreenState extends State<SplashScreen>
         ),
       ),
     );
+  }
+
+  openPage() async {
+    String id = await getId();
+    bool val = await getUserLock();
+    print(id);
+    if (val) {
+      final isAuthenticated = await LocalAuthApi.authenticate();
+      print('isAuthenticated $isAuthenticated ');
+      if (isAuthenticated) {
+        if (id == 'null')
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => LoginPage()));
+        else {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => DashBoad()));
+        }
+      } else
+        print('cancel ');
+    } else {
+      if (id == 'null')
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => LoginPage()));
+      else {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => DashBoad()));
+      }
+    }
   }
 }
