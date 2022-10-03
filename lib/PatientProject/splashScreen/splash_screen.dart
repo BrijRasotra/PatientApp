@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:patient_app/PatientProject/Dashboad/dashboad.dart';
 import 'package:patient_app/PatientProject/login/login.dart';
 import 'package:patient_app/util/local_storage.dart';
-
 import '../../util/util.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,8 +11,7 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
   late Size size;
   late AnimationController _animationController;
   var _scaleTween, _translateTween;
@@ -22,8 +20,7 @@ class _SplashScreenState extends State<SplashScreen>
   initState() {
     // TODO: implement initState
     super.initState();
-    _animationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 1500));
+    _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 1500));
     _scaleTween = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
         parent: _animationController,
         curve: Interval(0.0, 0.50, curve: Curves.ease)));

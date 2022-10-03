@@ -8,15 +8,26 @@ class DashBoad extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFe2a1fc),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xFFe2a1fc),
       ),
       drawer: DrawerPage(),
       body: Container(
         decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFFe2a1fc),
+              Color(0xFFe2a1fc),
+              Color(0xFFf4b961),
+              Color(0xFF7eadf8),
+              Color(0xFF7eadf8),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
         ),
+
       ),
     );
   }

@@ -21,13 +21,17 @@ class LoginPage extends StatelessWidget {
       body: Consumer<LoginProvider>(
         builder: (BuildContext context, value, Widget? child) => Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color(0xFF6895fe),
-              Color(0xFFfeb3ed),
-              Color(0xFFf4b961),
-              Color(0xFF7eadf8),
-              Color(0xFFe2a1fc)
-            ], begin: Alignment.topLeft, end: Alignment.bottomCenter),
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF6895fe),
+                Color(0xFFfeb3ed),
+                Color(0xFFf4b961),
+                Color(0xFF7eadf8),
+                Color(0xFFe2a1fc),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomCenter,
+            ),
           ),
           child: Form(
             key: formKey,
@@ -130,7 +134,8 @@ class LoginPage extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 25, right: 25),
                           child: TextFormField(
                             controller: value.passwordController,
-                            autovalidateMode: AutovalidateMode.onUserInteraction,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
                             obscureText: value.hidePassword,
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(top: 10),
@@ -191,7 +196,8 @@ class LoginPage extends StatelessWidget {
                             color: const Color(0xFFac59db),
                             child: const Text(
                               "SIGN IN",
-                              style: TextStyle(fontSize: 22, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 22, color: Colors.white),
                             ),
                           ),
                   ),
