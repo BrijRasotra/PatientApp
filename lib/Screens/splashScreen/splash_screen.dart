@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:patient_app/PatientProject/Dashboad/dashboad.dart';
-import 'package:patient_app/PatientProject/login/login.dart';
+import 'package:patient_app/Screens/login/login.dart';
 import 'package:patient_app/util/local_storage.dart';
 import '../../util/util.dart';
+import '../HomePage/dashboad.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -142,7 +142,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               context, MaterialPageRoute(builder: (context) => LoginPage()));
         else {
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => DashBoad()));
+              context, MaterialPageRoute(builder: (context) => HomePage()));
         }
       } else
         print('cancel ');
@@ -152,7 +152,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             context, MaterialPageRoute(builder: (context) => LoginPage()));
       else {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => DashBoad()));
+            context, MaterialPageRoute(builder: (context) => HomePage()));
       }
     }
   }

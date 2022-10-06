@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:patient_app/PatientProject/login/login_provider.dart';
+import 'package:patient_app/Screens/login/login_provider.dart';
 import 'package:patient_app/util/util.dart';
 import 'package:provider/provider.dart';
 

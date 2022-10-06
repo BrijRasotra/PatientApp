@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:patient_app/PatientProject/Dashboad/dashboad.dart';
 import 'package:patient_app/model/dropdownModel.dart';
 import 'package:patient_app/model/loginModel.dart';
 import 'package:patient_app/util/local_storage.dart';
 
 import '../../util/service.dart';
+import '../HomePage/dashboad.dart';
 
 class LoginProvider extends ChangeNotifier {
   bool load = false;
@@ -44,7 +44,7 @@ class LoginProvider extends ChangeNotifier {
       loginModel = await hitLogin(map);
       await setUserInfo(loginModel.data!.userInfo!);
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => DashBoad()));
+          context, MaterialPageRoute(builder: (context) => HomePage()));
       load = false;
       notifyListeners();
     } on Exception catch (e) {
